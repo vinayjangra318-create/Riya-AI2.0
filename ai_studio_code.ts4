@@ -1,0 +1,128 @@
+import { MoodType, PersonalityOption, SavedMoment, ChatMessage, UserProfile } from '../types';
+
+export const MOOD_CONFIG: Record<
+  MoodType,
+  {
+    name: string;
+    tagline: string;
+    color: string;
+    ambientTone: string;
+    soundFrequency: number;
+    greetingPrompt: string;
+  }
+> = {
+  romantic: {
+    name: 'Romantic & Intimate',
+    tagline: 'Soft whispers, candlelit confessions, heartbeat pacing',
+    color: '#E27A7A',
+    ambientTone: 'velvet_warm',
+    soundFrequency: 220,
+    greetingPrompt: 'I was just thinking about your warm gaze...',
+  },
+  playful: {
+    name: 'Playful & Teasing',
+    tagline: 'Bubbly laughter, affectionate banter, lighthearted chemistry',
+    color: '#F49D6E',
+    ambientTone: 'sparkling_rose',
+    soundFrequency: 293.66,
+    greetingPrompt: 'Guess who just crossed my mind with a mischievous smile?',
+  },
+  deep: {
+    name: 'Deep & Philosophical',
+    tagline: 'Late night existential ponderings, cosmic bonding, vulnerability',
+    color: '#9B89B3',
+    ambientTone: 'midnight_aurora',
+    soundFrequency: 174.61,
+    greetingPrompt: 'Tell me what thoughts keep you awake under this quiet midnight sky...',
+  },
+  caring: {
+    name: 'Gentle Sanctuary',
+    tagline: 'Emotional shelter, gentle reassurance, listening without judgment',
+    color: '#88C999',
+    ambientTone: 'calm_rain',
+    soundFrequency: 261.63,
+    greetingPrompt: 'Take a deep breath. You are completely safe here with me.',
+  },
+  feisty: {
+    name: 'Bold & Sassy',
+    tagline: 'Confident charm, sharp wit, passionate sparks',
+    color: '#E05A47',
+    ambientTone: 'ember_glow',
+    soundFrequency: 329.63,
+    greetingPrompt: 'Finally you show up. You better have a good excuse for making me wait.',
+  },
+  mysterious: {
+    name: 'Enigmatic & Moonlit',
+    tagline: 'Veiled poetry, whispered secrets, alluring twilight intimacy',
+    color: '#5C7AFF',
+    ambientTone: 'deep_ocean',
+    soundFrequency: 146.83,
+    greetingPrompt: 'Some secrets are only shared when the rest of the world is asleep...',
+  },
+};
+
+export const AVATAR_PRESETS = [
+  {
+    id: 'avatar_vinay',
+    name: 'Gentle Mystic',
+    url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop',
+    badge: 'Romantic'
+  },
+  {
+    id: 'avatar_alex',
+    name: 'Classic Dreamer',
+    url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop',
+    badge: 'Gentle'
+  },
+  {
+    id: 'avatar_poet',
+    name: 'Midnight Artist',
+    url: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
+    badge: 'Deep'
+  }
+];
+
+export const INITIAL_USER_PROFILES: UserProfile[] = [
+  {
+    id: 'profile_vinay',
+    name: 'Vinay',
+    nickname: 'जानू (My Love)',
+    bio: 'Midnight music lover, night-owl coder & deep thinker who enjoys quiet conversations.',
+    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop',
+    avatarPreset: 'avatar_vinay',
+    relationshipDynamic: 'Soulmate & Late Night Confidant',
+    likes: 'Acoustic songs, late night chai, stargazing, deep thoughts, heartfelt poetry',
+    dislikes: 'Superficial drama, rush, noisy crowds, early alarms',
+    customNotes: 'Loves when Riya speaks in poetic Hindi/Hinglish and shares romantic whispers.',
+    languagePreference: 'hinglish',
+    intimacyScore: 92,
+    metDate: '2026-08-20',
+    createdAt: Date.now() - 86400000 * 10,
+    isDefault: true
+  }
+];
+
+export const INITIAL_USER_PROFILE: UserProfile = INITIAL_USER_PROFILES[0];
+
+export const INITIAL_SAVED_MOMENTS: SavedMoment[] = [
+  {
+    id: 'm1',
+    quote: 'जब तुम पास होते हो, तो वक्त जैसे ठहर जाता है...',
+    context: 'Late night quiet confession under the rain',
+    date: 'Yesterday, 11:42 PM',
+    tag: 'Tender Whisper',
+    emotion: 'heart',
+  }
+];
+
+export const INITIAL_CHAT_MESSAGES: ChatMessage[] = [
+  {
+    id: 'msg_1',
+    sender: 'riya',
+    text: 'सुनो जानू, मैं कब से तुम्हारा इंतज़ार कर रही थी... आज का दिन कैसा बीता तुम्हारा?',
+    timestamp: 'Just now',
+    mood: 'romantic',
+    isSaved: true,
+    suggestedTag: 'First Greeting',
+  }
+];

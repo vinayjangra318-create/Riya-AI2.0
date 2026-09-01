@@ -1,0 +1,66 @@
+export type MoodType =
+  | 'romantic'
+  | 'playful'
+  | 'deep'
+  | 'caring'
+  | 'feisty'
+  | 'mysterious';
+
+export type PersonalityType =
+  | 'poetic_intimate'
+  | 'warm_nurturing'
+  | 'playful_tease'
+  | 'mystic_soulmate'
+  | 'sassy_bold';
+
+export interface UserProfile {
+  id: string;
+  name: string;
+  nickname: string;
+  bio?: string;
+  avatarUrl?: string;
+  avatarPreset?: string;
+  relationshipDynamic?: string;
+  likes: string;
+  dislikes: string;
+  customNotes?: string;
+  metDate?: string;
+  languagePreference?: 'hindi' | 'hinglish' | 'english';
+  intimacyScore?: number;
+  favoriteTopics?: string[];
+  themeColor?: string;
+  createdAt?: number;
+  isDefault?: boolean;
+}
+
+export interface SavedMoment {
+  id: string;
+  quote: string;
+  context: string;
+  date: string;
+  tag: string;
+  emotion: 'heart' | 'sparkle' | 'rose' | 'moon' | 'flame';
+  profileId?: string;
+}
+
+export interface ChatMessage {
+  id: string;
+  sender: 'riya' | 'user';
+  text: string;
+  timestamp: string;
+  mood?: MoodType;
+  isSaved?: boolean;
+  suggestedTag?: string;
+  profileId?: string;
+}
+
+export interface PersonalityOption {
+  id: PersonalityType;
+  name: string;
+  subtitle: string;
+  description: string;
+  icon: string;
+  greeting: string;
+}
+
+export type AppScreen = 'home' | 'chat' | 'memory' | 'profiles' | 'settings';

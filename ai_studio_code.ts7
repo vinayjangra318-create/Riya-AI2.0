@@ -1,0 +1,57 @@
+import React from 'react';
+import { PhoneCall, Sparkles, MessageCircle, Heart, Flame, Moon, Music } from 'lucide-react';
+import { MoodType, UserProfile } from '../types';
+import { MOOD_CONFIG } from '../data/defaults';
+
+interface HomeScreenProps {
+  onStartChat: () => void;
+  onOpenVoiceModal: () => void;
+  onNavigateToProfiles?: () => void;
+  activeMood: MoodType;
+  onChangeMood: (mood: MoodType) => void;
+  userProfile: UserProfile;
+}
+
+export const HomeScreen: React.FC<HomeScreenProps> = ({
+  onStartChat,
+  onOpenVoiceModal,
+  onNavigateToProfiles,
+  activeMood,
+  onChangeMood,
+  userProfile,
+}) => {
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between overflow-hidden bg-[#050505] p-5">
+      <div className="text-center space-y-2">
+        <h1 className="text-4xl font-serif tracking-tight text-[#E27A7A]">Riya</h1>
+        {onNavigateToProfiles && (
+          <button
+            onClick={onNavigateToProfiles}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs text-white"
+          >
+            <span className="text-[#E27A7A]">For {userProfile.name}</span>
+            <span className="text-[9px] uppercase bg-black/50 px-1.5 py-0.5 rounded">Switch</span>
+          </button>
+        )}
+      </div>
+
+      <div className="space-y-3">
+        <button
+          onClick={onStartChat}
+          className="w-full py-4 rounded-full bg-[#E27A7A] text-black font-semibold text-sm uppercase tracking-widest hover:bg-[#eb8c8c] flex items-center justify-center gap-2 shadow-lg shadow-[#E27A7A]/25"
+        >
+          <MessageCircle className="w-4 h-4" />
+          <span>Whisper to Riya</span>
+        </button>
+
+        <button
+          onClick={onOpenVoiceModal}
+          className="w-full py-3.5 rounded-full bg-white/5 border border-white/15 text-white/90 text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white/10"
+        >
+          <PhoneCall className="w-4 h-4 text-[#E27A7A]" />
+          <span>Start Voice Sanctuary</span>
+        </button>
+      </div>
+    </div>
+  );
+};
